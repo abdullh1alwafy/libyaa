@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="icon" href="https://i.postimg.cc/jSxpT4Zx/png-20221209-032606.png" type="image/png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الموقع الليبي</title>
+    <style>
+        .search-container {
+            position: absolute;
+            top: 15px; 
+            left: 15px; 
+        }
+
+        #search-input {
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 60px; 
+        }
+
+        #search-button {
+            padding: 5px 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+            margin-left: 5px;
+            width:33px;
+        }
+
+        #search-button:hover {
+            background-color: #333;
+        }
+
+        .share-buttons {
+            display: flex;
+            justify-content: start;
+            margin-top: 10px;
+        }
+        .share-buttons a {
+            text-decoration: none;
+            color: #4CAF50;
+            margin-right: 15px;
+            font-size: 18px;
+            transition: color 0.3s;
+        }
+        .share-buttons a:hover {
+            color: #333;
+        }
+        body.dark-mode {
+            background-color: black;
+            color: white;
+        }
+        .toggle-button {
+            padding: 10px 20px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            position: fixed;
+            top: 300px;
+            left: 20px;
+            z-index: 1000;
+            background: rgba(0, 0, 255, 0.5);
+            width: 30px;
+            padding: 7px;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            direction: rtl;
+            background: #d9d5db;
+        }
+        #im {
+            width: 390px;
+            position: relative;
+            bottom: 9px;
+        }
+        header {
+            background-color: rgba(900, 255, 255, 0.9);
+            color: black;
+            padding: 10px;
+            text-align: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            height: 70px;  
+        }
+        .container {
+            display: flex;
+            flex: 1;
+            padding: 10px;
+            margin-top: 80px;
+        }
+        .main-content {
+            flex: 3;
+            padding: 10px;
+        }
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 10px;
+        }
+        .footer-links {
+            background: #9da8a6;
+            color: white;
+            text-align: center;
+            padding: 10px;
+        }
+        .sidebar {
+            height: 100%;
+            width: 150px;
+            background: #f4f4f4;
+            position: fixed;
+            right: -350px;
+            transition: right 0.5s;
+            padding: 20px;
+            box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5);
+        }
+        .sidebar h2 {
+            margin-top: 50px;
+        }
+        .sidebar.open {
+            right: 0;
+        }
+        .toggle-btn {
+            background: black;
+            color: white;
+            border: none;
+            cursor: pointer;
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            width: 40px;
+            font-size: 20px;
+            z-index: 1001;
+            height: 30px;
+        }
+        .sidebar ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .sidebar ul li {
+            margin: 10px 0;
+        }
+        .sidebar ul li a {
+            text-decoration: none;
+            color: #4CAF50;
+        }
+        .social-icons {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 20px;
+        }
+        .social-icons i {
+            font-size: 24px;
+            color: #4CAF50;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+        .social-icons i:hover {
+            color: #333;
+        }
+        .footer-links ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .footer-links ul li {
+            margin: 5px 0;
+        }
+        .footer-links ul li a {
+            text-decoration: none;
+            color: white;
+        }
+        .read-more {
+            color: blue;
+            cursor: pointer;
+            margin-top: 10px;
+            display: inline-block;
+        }
+        .hidden-content {
+            display: none; 
+        }
+        @media (max-width: 600px) {
+            .container {
+                flex-direction: column;
+            }
+        }
+        #pag{
+            color:black;
+            
+        }
+    </style>
+</head>
+<body>
+
+<header>
+   <img id="im" src="https://i.postimg.cc/vmV9RRpJ/output-35.png" />
+   <button class="toggle-btn" onclick="toggleSidebar()">&#9782;</button>
+   <div class="search-container">
+    <input type="text" id="search-input" placeholder="بحث..." aria-label="بحث" />
+    <button id="search-button">🔍</button>
+</div>
+</header>
+<button class="toggle-button" id="toggle-button">🌙</button>
+
+<div class="container">
+    <div class="main-content">
+        <h2>أحدث المقالات</h2>
+        <article
+        >
+            <h3>معرض الكتاب الدولي</h3>
+            <img src="https://i.postimg.cc/HnZF7PTt/images-33.jpg" width="200px" />
+            <p></p>
+            <div class="hidden-content">
+                <p>معلومات إضافية حول المقال الأول. هنا يمكنك إضافة تفاصيل إضافية أو معلومات مهمة تتعلق بالموضوع.</p>
+            </div>
+       
+         
+        </article>
+        <article>
+            <h3>عنوان المقال الثاني</h3>
+            <p>بسم الله الرحمن الرحيم ...</p>
+            <div class="hidden-content">
+                <p>معلومات إضافية حول المقال الثاني.</p>
+            </div>
+            
+        </article>
+        <article>
+            <h3>عنوان المقال الثالث</h3>
+            <p>بسم الله الرحمن الرحيم ...</p>
+            <div class="hidden-content">
+                <p>معلومات إضافية حول المقال الثالث.</p>
+            </div>
+   
+        </article>
+        <article>
+            <h3>عنوان المقال الرابع</h3>
+            <p>بسم الله الرحمن الرحيم ...</p>
+            <div class="hidden-content">
+                <p>معلومات إضافية حول المقال الرابع.</p>
+            </div>
+     
+        </article>
+        <div class="main-content">
+    <h2>أحدث المقالات</h2>
+    <article>
+        <h3>معرض الكتاب الدولي</h3>
+        <p>محتوى المقال الأول...</p>
+    </article>
+    <article>
+        <h3>عنوان المقال الثاني</h3>
+        <p>محتوى المقال الثاني...</p>
+    </article>
+    <!-- أضف مقالات إضافية هنا -->
+</div>
+    </div>
+    
+    <aside class="sidebar" id="sidebar">
+        <h2>تابعنا على</h2>
+        <div class="social-icons">
+            <a href="https://www.facebook.com/southern.libayn" target="_blank">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+            <i class="fab fa-twitter"></i>
+            <i class="fab fa-instagram"></i>
+            <a href="https://youtube.com/@southernlibyan?si=K4Wamsj0_NJ36am3" target="_blank">
+                <i class="fab fa-youtube"></i>
+            </a>
+            <i class="fab fa-whatsapp"></i>
+        </div>
+        <h2 id="h"> الصفحات</h2>
+        <ul id="sidebar-menu"></ul>
+        <h2>إعلانات</h2>
+        <p>مساحة للإعلانات</p>
+    </aside>
+</div>
+
+<div class="footer-links">
+    <h2 id="pag"> الصفحات</h2>
+    <ul>
+        <li><a href="#contact">اتصل بنا</a></li>
+        <li><a href="#privacy">سياسة الخصوصية</a></li>
+        <li><a href="#about">عن المدونة</a></li>
+    </ul>
+</div>
+
+
+<footer>
+    <p>حقوق الطبع والنشر © 2024 </p>
+</footer>
+
+<script>
+    // قائمة الصفحات
+    const pages = [
+        { name: 'صفحة اتصل بنا', url: '#contact' },
+        { name: 'سياسة الخصوصية', url: '#privacy' },
+        { name: 'دليل المستخدم', url: '#guide' },
+    ];
+
+    // إضافة الصفحات إلى القائمة الجانبية
+    const sidebarMenu = document.getElementById('sidebar-menu');
+    pages.forEach(page => {
+        const li = document.createElement('li');
+        li.innerHTML = `<a href="${page.url}">${page.name}</a>`;
+        sidebarMenu.appendChild(li);
+    });
+
+    // وظيفة لتبديل حالة القائمة الجانبية
+    function toggleSidebar() {
+        const sidebar = document.getElementById('sidebar');
+        sidebar.classList.toggle('open');
+    }
+
+    // وظيفة لتبديل عرض المحتوى الإضافي
+    function toggleContent(element) {
+        const content = element.previousElementSibling;
+        if (content.classList.contains('hidden-content')) {
+            content.classList.remove('hidden-content');
+            element.textContent = 'عرض أقل';
+        } else {
+            content.classList.add('hidden-content');
+            element.textContent = 'عرض المزيد';
+        }
+    }
+
+    const toggleButton = document.getElementById('toggle-button');
+    toggleButton.addEventListener('click', () => {
+        document.body.classList.toggle('dark-mode');
+        toggleButton.textContent = document.body.classList.contains('dark-mode') ? '☀️' : '🌙';
+    });
+
+    // زر البحث
+    document.getElementById('search-button').addEventListener('click', function() {
+        const query = document.getElementById('search-input').value.toLowerCase();
+        const articles = document.querySelectorAll('article');
+        articles.forEach(article => {
+            const title = article.querySelector('h3').innerText.toLowerCase();
+            const content = article.querySelector('p').innerText.toLowerCase();
+            if (title.includes(query) || content.includes(query)) {
+                article.style.display = 'block'; 
+            } else {
+                article.style.display = 'none'; 
+            }
+        });
+    });
+
+    // إضافة زر "عرض المزيد" تلقائيًا لجميع المقالات
+    document.querySelectorAll('article').forEach(article => {
+        const hiddenContent = article.querySelector('.hidden-content');
+        if (hiddenContent) {
+            const readMoreButton = document.createElement('span');
+            readMoreButton.classList.add('read-more');
+            readMoreButton.textContent = 'عرض المزيد';
+            readMoreButton.onclick = function() {
+                toggleContent(this);
+            };
+            article.appendChild(readMoreButton);
+        }
+    });
+</script>
+<script>
+document.querySelectorAll('article').forEach((article, index) => {
+    const commentsSection = document.createElement('div');
+    commentsSection.className = 'comments-section';
+    commentsSection.innerHTML = `
+        <h4>التعليقات</h4>
+        <div class="comments-list" id="comments-${index}"></div>
+        <textarea id="comment-input-${index}" placeholder="اكتب تعليقك هنا..."></textarea>
+        <button onclick="addComment(${index})">إرسال</button>
+    `;
+    article.appendChild(commentsSection);
+});
+
+function addComment(articleId) {
+    const commentInput = document.getElementById(`comment-input-${articleId}`);
+    const commentsList = document.getElementById(`comments-${articleId}`);
+    
+    if (commentInput.value.trim()) {
+        const comment = document.createElement('div');
+        comment.textContent = commentInput.value;
+        commentsList.appendChild(comment);
+        commentInput.value = ''; // Clear the input
+    }
+}
+
+</script>
+</body>
+</html>
