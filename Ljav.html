@@ -369,7 +369,22 @@
         }
     });
 </script>
+
+
 <script>
+// تحميل التعليقات من localStorage
+function loadComments() {
+    const commentsData = JSON.parse(localStorage.getItem('comments')) || {};
+    Object.keys(commentsData).forEach(index => {
+        const commentsList = document.getElementById(`comments-${index}`);
+        commentsData[index].forEach(comment => {
+            const commentDiv = document.createElement('div');
+            commentDiv.textContent = comment;
+            commentsList.appendChild(commentDiv);
+        });
+    });
+}
+
 document.querySelectorAll('article').forEach((article, index) => {
     const commentsSection = document.createElement('div');
     commentsSection.className = 'comments-section';
@@ -387,12 +402,25 @@ function addComment(articleId) {
     const commentsList = document.getElementById(`comments-${articleId}`);
     
     if (commentInput.value.trim()) {
+        // إضافة التعليق إلى الواجهة
         const comment = document.createElement('div');
         comment.textContent = commentInput.value;
         commentsList.appendChild(comment);
+
+        // تخزين التعليق في localStorage
+        const commentsData = JSON.parse(localStorage.getItem('comments')) || {};
+        if (!commentsData[articleId]) {
+            commentsData[articleId] = [];
+        }
+        commentsData[articleId].push(commentInput.value);
+        localStorage.setItem('comments', JSON.stringify(commentsData));
+
         commentInput.value = ''; // Clear the input
     }
 }
+
+// تحميل التعليقات عند تحميل الصفحة
+window.onload = loadComments;
 
 </script>
 </body>
